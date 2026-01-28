@@ -7,9 +7,37 @@ y = rnorm(10)
 
 #Plot the variables x and y using a density plot
 pts = seq(-4.5,4.5,length=100)
-plot(pts,dt(pts,df=9),col='red',type='l')
-lines(density(x), col='green')
-lines(density(y), col='blue')
+plot(
+  pts,
+  dt(pts, df = 9),
+  col = "red",
+  type = "l",
+  main = "T Test",
+  xlab = "Sequence",
+  ylab = "Density of X and Y",
+  lty = 2
+)
+
+lines(density(x), col = "green")
+lines(density(y), col = "blue")
+
+
+
+#Adjust scale of y Axis such that it fits att the curve on plot
+plot(
+  pts,
+  dt(pts, df = 9),
+  col = "red",
+  type = "l",
+  main = "T Test",
+  xlab = "Sequence",
+  ylab = "Density of X and Y",
+  lty = 2,
+  ylim = c(0, 0.8)
+)
+
+lines(density(x), col = "green")
+lines(density(y), col = "blue")
 
 #Apply the function for t test.
 ttest = t.test(x,y)
@@ -26,3 +54,4 @@ alternative hypothesis: true difference in means is not equal to 0
 sample estimates:
  mean of x  mean of y 
 0.66426867 0.03511955 
+
